@@ -115,10 +115,12 @@ func (c *Client) Close() {
 
 // Authenticate - authenticates a user against ldap
 func (c *Client) Authenticate(username, password string) (bool, map[string]string, error) {
+	/*
 	defer c.Bind()
 	if err := c.Bind(); err != nil {
 		return false, nil, err
 	}
+	*/
 	attributes := append(c.Config.Attributes, "dn")
 	// Search for the given username
 	searchRequest := ldap.NewSearchRequest(
